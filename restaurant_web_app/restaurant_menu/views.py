@@ -12,3 +12,8 @@ class MenuList(ListView):
         context['category'] = MEAL_TYPE
         return context
 
+
+class ItemDetail(DetailView):
+    model = Item
+    template_name = 'item_detail.html'
+

@@ -11,10 +11,10 @@
         {% for i in item_list %}
             {% if meal_type.0 == i.meal_type %}
                 {% if i.status == 0 %}
-                    <h3><del>{{i.name}}</del></h3>
+                    <a href="{% url 'details' i.pk %}"><h3><del>{{i.name}}</del></h3></a>
                     <p>{{i.description}}</p>
                 {% else %}
-                    <h3>{{i.name}}</h3>
+                    <a href="{% url 'details' i.pk %}"><h3>{{i.name}}</h3></a>
                     <p>{{i.description}}</p>
                 {% endif %}
             {% endif %}

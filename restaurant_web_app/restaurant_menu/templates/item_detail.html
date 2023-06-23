@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item details</title>
+</head>
+<body>
+    <h1>{{ item }}</h1>
+    <h3>Description: {{ item.description }}</h3>
+    <h3>Category : {{ item.meal_type|title }}</h3>
+    <h3>Price: ₹ {{ item.price }}</h3>
+    <h3>Chef: {{ item.author|title }}</h3>
+    {% if item.status == 0 %}
+        <h3>Status: Unavailable</h3>
+    {% else %}
+        <h3>Status: Available</h3>
+    {% endif %}
+</body>
+</html>
