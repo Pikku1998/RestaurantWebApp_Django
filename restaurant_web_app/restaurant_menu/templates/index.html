@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Our Restaurant Menu</h1>
+    {% for meal_type in category %}
+        <h2>{{ meal_type.1 }}</h2><br>
+    {% endfor %}
+
+
+</body>
+</html>
