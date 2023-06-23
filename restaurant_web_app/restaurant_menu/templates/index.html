@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Our Restaurant Menu</h1>
-    {% for meal_type in category %}
-        <h2>{{ meal_type.1 }}</h2>
-        {% for i in item_list %}
-            {% if meal_type.0 == i.meal_type %}
-                {% if i.status == 0 %}
-                    <a href="{% url 'details' i.pk %}"><h3><del>{{i.name}}</del></h3></a>
-                    <p>{{i.description}}</p>
-                {% else %}
-                    <a href="{% url 'details' i.pk %}"><h3>{{i.name}}</h3></a>
-                    <p>{{i.description}}</p>
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mt-5">
+        <h1>Our Restaurant Menu</h1>
+        <ul class="list-group list-group-flush">
+        {% for meal_type in category %}
+            <h2 class="pt-5">{{ meal_type.1 }}</h2>
+            {% for i in item_list %}
+                {% if meal_type.0 == i.meal_type %}
+                    {% if i.status == 0 %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
+                            <a href="{% url 'details' i.pk %}"><h4><del>{{i.name}}</del></h4></a>
+                            <span class="badge bg-primary rounded-pill">₹ {{ i.price }}</span>
+                        </li>
+                        <li class="list-group-item pt-0">
+                            <p>{{i.description}}</p>
+                        </li>
+                    {% else %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
+                            <a href="{% url 'details' i.pk %}"><h4>{{i.name}}</h4></a>
+                            <span class="badge bg-primary rounded-pill">₹ {{ i.price }}</span>
+
+                        </li>
+                        <li class="list-group-item pt-0">
+                            <p>{{i.description}}</p>
+                        </li>
+
+                    {% endif %}
                 {% endif %}
-            {% endif %}
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
+        </ul>
+    </div>
 
-
-</body>
-</html>
+{% endblock content %}

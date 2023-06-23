@@ -17,3 +17,10 @@ class ItemDetail(DetailView):
     model = Item
     template_name = 'item_detail.html'
 
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')

@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Item details</title>
-</head>
-<body>
-    <h1>{{ item }}</h1>
-    <h3>Description: {{ item.description }}</h3>
-    <h3>Category : {{ item.meal_type|title }}</h3>
-    <h3>Price: ₹ {{ item.price }}</h3>
-    <h3>Chef: {{ item.author|title }}</h3>
-    {% if item.status == 0 %}
-        <h3>Status: Unavailable</h3>
-    {% else %}
-        <h3>Status: Available</h3>
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <h1>{{ item }}</h1>
+        <h4 class="pt-3">Description: {{ item.description }}</h4>
+        <h5>Category : {{ item.meal_type|title }}</h5>
+        <h5>Price: ₹ {{ item.price }}</h5>
+        <h5>Chef: {{ item.author|title }}</h5>
+        {% if item.status == 0 %}
+            <h5>Status: Unavailable</h5>
+        {% else %}
+            <h5>Status: Available</h5>
+        {% endif %}
+    </div>
+
+{% endblock content %}
