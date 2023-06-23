@@ -1,0 +1,4 @@
+venv
+.idea
+/restaurant_web_app/db.sqlite3
+/restaurant_web_app/.env
